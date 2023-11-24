@@ -33,9 +33,17 @@ def login():
 def getAllInfluencer():
     return influencer.get_all_influencers()
 
+@app.route('/influencer/<username>')
+def getDetailsInfluencer(username):
+    return influencer.get_details_influencer(username)
+
 @app.route('/contents')
 def getAllContents():
     return content.get_all_content()
+
+@app.route('/content/<username>/<content_id>')
+def getDetailsContent(username, content_id):
+    return content.get_details_content(username, content_id)
 
 @app.route('/search-influencer')
 def searchInfluencer():

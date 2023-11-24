@@ -2,6 +2,7 @@ from flask import request, jsonify
 from bson import json_util
 from conf_db import MongoDBConnector
 from datetime import datetime
+import json
 
 class UserController:
     def __init__(self):
@@ -19,7 +20,8 @@ class UserController:
         # Menggunakan json_util untuk mengonversi ObjectId menjadi str
         result = json_util.dumps(list(users))
 
-        return result
+        result_dict = json.loads(result)
+        return jsonify(result_dict)
 
     def create_user(self):
         try:

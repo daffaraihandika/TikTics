@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+}
+
+.hide-element {
+  display: none;
+}  
+
+.error-message{
+color: red;
+}
+
+.card-title{
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.subtitle{
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+}
+
+.card-wrapper > div {
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+
+.card-wrapper .card-title{
+  font-size: 20px;
+  font-weight: 650;
+  margin: 0;
+}
+
+  /*pendidikan*/
+  .education {
+    display: flex;
+  }
+  
+  .timeline {
+    width: 50%;
+    padding: 20px;
+    border-right: 2px solid #333; /* Garis vertikal */
+  }
+  
+  .timeline-item {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .timeline-marker {
+    position: relative;
+    width: 20px;
+    padding-right: 10px;
+  }
+  
+  .marker-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #333; /* Warna titik */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .marker-line {
+    position: absolute;
+    width: 2px; /* Lebar garis vertikal */
+    height: 100%;
+    background-color: #333; /* Warna garis vertikal */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-content {
+    padding-left: 20px;
+  }
+
+.timeline-item:hover {
+  background-color: #f0f0f0; /* Mengubah warna latar belakang saat dihover */
+  color: #333; /* Mengubah warna teks saat dihover */
+  cursor: pointer;
+  cursor: auto;
+}
