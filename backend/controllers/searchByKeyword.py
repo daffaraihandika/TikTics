@@ -2,6 +2,7 @@ from flask import request, jsonify
 from bson import json_util
 from conf_db import MongoDBConnector
 from datetime import datetime
+import json
 
 class SearchByKeywordController:
     def __init__(self):
@@ -33,7 +34,8 @@ class SearchByKeywordController:
         # Menggunakan json_util untuk mengonversi ObjectId menjadi str
         result = json_util.dumps(list(sorted_influencer))
 
-        return result
+        result_dict = json.loads(result)
+        return jsonify(result_dict)
     
     def search_content(self):
         mongo_connector = MongoDBConnector()
@@ -75,4 +77,5 @@ class SearchByKeywordController:
         # Menggunakan json_util untuk mengonversi ObjectId menjadi str
         result = json_util.dumps(list(sorted_content))
 
-        return result
+        result_dict = json.loads(result)
+        return jsonify(result_dict)

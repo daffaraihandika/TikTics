@@ -1,6 +1,7 @@
 from flask import jsonify
 from bson import json_util
 from conf_db import MongoDBConnector
+import json
 
 class InfluencerController:
     def __init__(self):
@@ -22,5 +23,30 @@ class InfluencerController:
 
         # Menggunakan json_util untuk mengonversi ObjectId menjadi str
         result = json_util.dumps(list(sorted_influencer))
+        
+        result_dict = json.loads(result)
+        return jsonify(result_dict)
+    
+    def get_details_influencer(self, username):
+        try:
+            mongo_connector = MongoDBConnector()
+            mongo_connector.check_connection()
+            # Menyimpan data ke dalam koleksi 'influencers'
+            collection = mongo_connector.get_collection('influencers')
 
-        return result
+            # Mendapatkan data influencer berdasarkan username
+            influencer = collection.find_one({'username': username}, {'content': 0})
+
+            if influencer:
+                # Menggunakan json_util untuk mengonversi ObjectId menjadi str
+                result = json_util.dumps(influencer)
+                # Convert the JSON string to a Python dictionary
+                result_dict = json.loads(result)
+                return jsonify(result_dict)
+            else:
+                # Return JSON dengan pesan bahwa influencer tidak ditemukan
+                return jsonify(message="Influencer tidak ditemukan"), 404
+        except Exception as e:
+            # Handle other exceptions if needed
+            print(e)
+            return jsonify(message="Terjadi kesalahan"), 500
