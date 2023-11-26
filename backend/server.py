@@ -21,7 +21,7 @@ search = SearchByKeywordController()
 def getAllUser():
     return user.get_all_users()
 
-@app.route('/users', methods=['POST'])
+@app.route('/register', methods=['POST'])
 def createUser():
     return user.create_user()
 

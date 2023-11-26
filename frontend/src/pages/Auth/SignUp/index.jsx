@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from "react-router-dom";
+
 import {
   MDBBtn,
   MDBContainer,
@@ -14,6 +17,33 @@ from 'mdb-react-ui-kit';
 import './SignUp.css';
 
 function SignUp() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confPassword, setConfPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
+
+  const registerHandler = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await axios.post('http://localhost:5000/register', {
+          username, email, password, confPassword
+        });
+        
+        navigate('/');
+        console.log("Register Berhasil");
+        console.log("Response :", response.data);
+        
+    } catch (error) {
+        console.log(error.response.data.error);
+        setMsg(error.response.data.error);
+        setError(true);
+    }
+  }
+
   return (
     <MDBContainer fluid className='my-5'>
 
@@ -25,24 +55,26 @@ function SignUp() {
 
               <h2 className="fw-bold mb-5">Sign Up</h2>
 
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-                </MDBCol>
+              <form onSubmit={registerHandler}>
+                <MDBRow>
+                  <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' label='Username' id='username' type='text' value={username} onChange={(e) => setUsername(e.target.value)} required />
+                  </MDBCol>
 
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='Last name' id='form2' type='text'/>
-                </MDBCol>
-              </MDBRow>
+                  <MDBCol col='6'>
+                    <MDBInput wrapperClass='mb-4' label='Email' id='email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  </MDBCol>
+                </MDBRow>
 
-              <MDBInput wrapperClass='mb-4' label='Email' id='form3' type='email'/>
-              <MDBInput wrapperClass='mb-4' label='Password' id='form4' type='password'/>
+                <MDBInput wrapperClass='mb-4' label='Password' id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <MDBInput wrapperClass='mb-4' label='Confirm Password' id='confPassword' type='password' value={confPassword} onChange={(e) => setConfPassword(e.target.value)} required />
 
-              <div className='d-flex justify-content-center mb-4'>
-                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-              </div>
+                <div className='d-flex justify-content-center mb-4'>
+                  <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
+                </div>
 
-              <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+                <MDBBtn className='w-100 mb-4' size='md' type='submit'>Sign Up</MDBBtn>
+              </form>
 
               <div className="text-center">
 

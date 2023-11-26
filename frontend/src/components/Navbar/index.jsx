@@ -19,8 +19,8 @@ export default function Navbar() {
   return (
     <>
       <MDBNavbar expand='lg' dark bgColor='primary'>
-        <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>Navbar</MDBNavbarBrand>
+        <MDBContainer>
+          <MDBNavbarBrand href='#'>TikTics</MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarColor02'
@@ -32,20 +32,17 @@ export default function Navbar() {
             <MDBIcon icon='bars' fas />
           </MDBNavbarToggler>
           <MDBCollapse open={openNavColor} navbar>
-            <MDBNavbarNav className='me-auto mb-2 mb-lg-0'>
+            <MDBNavbarNav right className='mb-2 mb-lg-0 mr-auto d-flex w-auto '>
               <MDBNavbarItem className='active'>
                 <MDBNavbarLink aria-current='page' href='#'>
-                  Home
+                  Top Influencer
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Features</MDBNavbarLink>
+                <MDBNavbarLink href='#'>Top Content</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Pricing</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>About</MDBNavbarLink>
+                <MDBNavbarLink href='#'>Search By Keyword</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
