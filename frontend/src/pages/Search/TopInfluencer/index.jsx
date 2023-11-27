@@ -12,8 +12,6 @@ import {
 import Navbar from "../../../components/Navbar";
 import SearchBar from "../../../components/SearchBar";
 import Topbar from "../../../components/Topbar";
-import Chart from "../../../components/Chart"
-
 
 function TopInfluencer() {
     const [dataInfluencer, setDataInfluencer] = useState("");
@@ -104,7 +102,6 @@ function TopInfluencer() {
             </MDBTable>
           </MDBCardBody>
         </MDBCard>
-        <Chart />
       </MDBContainer>
     </>
   );
