@@ -6,13 +6,9 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardTitle,
-  MDBCardText,
   MDBRow,
   MDBCol,
   MDBBtn,
-  MDBCarousel, 
-  MDBCarouselItem,
-  MDBCarouselControl
 } from 'mdb-react-ui-kit';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../../components/Navbar'
@@ -69,54 +65,75 @@ function Dashboard() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <MDBContainer>
-        <h1 className='title text-center'>Influencer and content recommendations that will change your social media experience.</h1>
+        <h1 className="title text-center">
+          Influencer and content recommendations that will change your social
+          media experience.
+        </h1>
         <MDBRow>
-          
-          <MDBCol sm='6'>
+          <MDBCol sm="6">
             <MDBCard>
               <MDBCardBody>
-                <MDBCardTitle className='text-center'>Top Influencer</MDBCardTitle>
+                <MDBCardTitle className="text-center">
+                  Top Influencer
+                </MDBCardTitle>
                 {dataInfluencer ? (
-                  dataInfluencer.map((influencer) => (
-                    <MDBRow key={influencer._id.$oid}>
-                      <MDBCol md='7'>
-                        <p className='nama'>{influencer.nickname}</p>
-                        <p className='username'>{influencer.username}</p>
+                  dataInfluencer.map((influencer, index) => (
+                    <MDBRow key={index}>
+                      <MDBCol md="1">{index + 1}</MDBCol>
+                      <MDBCol md="6">
+                        <p className="nama fw-bold mb-1">
+                          {influencer.nickname}
+                        </p>
+                        <p className="username">@{influencer.username}</p>
                       </MDBCol>
-                      <MDBCol md='5'>
-                        <p className='value-engagement'>{`${(influencer.engagement_rate_influencer).toLocaleString(undefined, { maximumFractionDigits: 2 })}%`}</p>
-                        <p className='text-engagement'>Engagement Rate</p>
+                      <MDBCol md="5">
+                        <p className="value-engagement">{`${influencer.engagement_rate_influencer.toLocaleString(
+                          undefined,
+                          { maximumFractionDigits: 2 }
+                        )}%`}</p>
+                        <p className="text-engagement">Engagement Rate</p>
                       </MDBCol>
                     </MDBRow>
                   ))
                 ) : (
                   <p>Loading...</p>
                 )}
-                <MDBBtn href='#'>Go somewhere</MDBBtn>
+                <MDBBtn href="#">Go somewhere</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
 
-          <MDBCol sm='6'>
+          <MDBCol sm="6">
             <MDBCard>
               <MDBCardBody>
-                <MDBCardTitle className='text-center'>Top Content</MDBCardTitle>
-                
+                <MDBCardTitle className="text-center">Top Content</MDBCardTitle>
+
                 {/* Carousel Top Content */}
 
                 {dataContent ? (
                   <Carousel
-                    nextIcon={<FaChevronRight style={{ color: 'gray' }} />}
-                    prevIcon={<FaChevronLeft style={{ color: 'gray' }} />}
+                    nextIcon={<FaChevronRight style={{ color: "gray" }} />}
+                    prevIcon={<FaChevronLeft style={{ color: "gray" }} />}
                   >
-                    {dataContent.map((content) => (
-                      <Carousel.Item key={content._id.$oid}>
-                        <p className='text-center'>Engagement Rate: {`${(content.engagement_rate_content).toLocaleString(undefined, { maximumFractionDigits: 2 })}%`}</p>
-                        <div dangerouslySetInnerHTML={{ __html: `
+                    {dataContent.map((content, index) => (
+                      <Carousel.Item key={index}>
+                        <p className="text-center" style={{marginBottom: '0px'}}>Rank: {index + 1}</p>
+                        <p className="text-center">
+                          Engagement Rate:{" "}
+                          {`${content.engagement_rate_content.toLocaleString(
+                            undefined,
+                            { maximumFractionDigits: 2 }
+                          )}%`}
+                        </p>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: `
                           <blockquote class="tiktok-embed" cite="${content.link}" data-video-id="${content.id_content}" style="max-width: 605px;min-width: 325px;" > <section></section></blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-                        ` }} />
+                        `,
+                          }}
+                        />
                       </Carousel.Item>
                     ))}
                   </Carousel>
@@ -124,15 +141,14 @@ function Dashboard() {
                   <p>Loading Content data...</p>
                 )}
 
-                <MDBBtn href='#'>Go somewhere</MDBBtn>
+                <MDBBtn href="#">Go somewhere</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-
         </MDBRow>
       </MDBContainer>
     </div>
-  )
+  );
 }
 
 export default Dashboard
