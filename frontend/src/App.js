@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import TopContent from './pages/Search/TopContent';
 import TopInfluencer from './pages/Search/TopInfluencer';
 import StatistikInfluencer from './pages/Statistik/StatistikInfluencer';
+import PrediksiStatistik from './pages/Statistik/PrediksiStatistik';
 import SearchByKeyword from './pages/Search/SearchByKeyword';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/top-content" element={<TopContent/>}/>
         <Route path="/top-influencer" element={<TopInfluencer/>}/>
         <Route path="/influencer-detail" element={<StatistikInfluencer/>}/>
+        <Route path="/statistic-prediction" element={<PrediksiStatistik/>}/>
         <Route path="/search-by-keyword" element={<SearchByKeyword/>}/>
       </Routes>
     </BrowserRouter>

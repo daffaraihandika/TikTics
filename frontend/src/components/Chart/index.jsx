@@ -10,7 +10,7 @@ const series = [
     type: "line",
     yAxisKey: "er",
     color: "red",
-    data: [10, 15, 30, 50, 100],
+    data: [40, 45, 30, 50, 38],
   },
 ];
 
@@ -18,8 +18,8 @@ export default function Combining() {
   return (
     <ChartContainer
       series={series}
-      width={500}
-      height={400}
+      width={1300}
+      height={600}
       xAxis={[
         {
           id: "Content Influencer",
