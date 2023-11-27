@@ -5,6 +5,7 @@ import SignUp from './pages/Auth/SignUp';
 import Dashboard from './pages/Dashboard';
 import TopContent from './pages/Search/TopContent';
 import TopInfluencer from './pages/Search/TopInfluencer';
+import SearchByKeyword from './pages/Search/SearchByKeyword';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/top-content" element={<TopContent/>}/>
         <Route path="/top-influencer" element={<TopInfluencer/>}/>
+        <Route path="/search-by-keyword" element={<SearchByKeyword/>}/>
       </Routes>
     </BrowserRouter>
   );

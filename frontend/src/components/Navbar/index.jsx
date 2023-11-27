@@ -34,15 +34,15 @@ export default function Navbar() {
           <MDBCollapse open={openNavColor} navbar>
             <MDBNavbarNav right className='mb-2 mb-lg-0 mr-auto d-flex w-auto '>
               <MDBNavbarItem className='active'>
-                <MDBNavbarLink aria-current='page' href='#'>
+                <MDBNavbarLink aria-current='page' href='/top-influencer'>
                   Top Influencer
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Top Content</MDBNavbarLink>
+                <MDBNavbarLink href='/top-content'>Top Content</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href='#'>Search By Keyword</MDBNavbarLink>
+                <MDBNavbarLink href='/'>Search By Keyword</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>
