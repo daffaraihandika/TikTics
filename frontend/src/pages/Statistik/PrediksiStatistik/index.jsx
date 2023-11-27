@@ -51,8 +51,8 @@ function PrediksiStatistik() {
         }
     }
 
-    const handleInfluencerDetailClick = () => {
-    navigate(`/influencer-detail/${dataInfluencer.username}`);
+    const handleInfluencerDetailClick = (username) => {
+    navigate(`/influencer-detail/${username}`);
     };
 
   return (
@@ -84,7 +84,7 @@ function PrediksiStatistik() {
                       "linear-gradient(90deg, #555CF6 0%, #812DE2 91.76%)",
                     textTransform: "none",
                   }}
-                  onClick={handleInfluencerDetailClick}
+                  onClick={handleInfluencerDetailClick(username)}
                 >
                   Influencer Detail
                 </MDBBtn>
