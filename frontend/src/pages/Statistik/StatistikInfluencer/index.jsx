@@ -72,9 +72,9 @@ function StatistikInfluencer() {
                         />
                     </MDBCol>
                     <MDBCol md={8} style={{ paddingLeft: "30px" }}>
-                        <p style={{ fontWeight: "bold" }}>Nickname</p>
-                        <p>Username</p>
-                        <p>Bio</p>
+                        <p style={{ fontWeight: "bold" }}>MrBeast</p>
+                        <p>@mrbeast</p>
+                        <p>I want to make the world a better place before I die</p>
                         <MDBBtn
                         rounded
                         className="text-light px-3 py-2"
@@ -98,24 +98,24 @@ function StatistikInfluencer() {
                 </MDBRow>
                 <MDBRow style={{ margin: "2rem auto" }}>
                     <MDBCol>
-                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>40K</p>
+                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>88M</p>
                         <p className='text-center' style={{ marginBottom: "0" }}>Total Followers</p>
                     </MDBCol>
                     <MDBCol>
-                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>3.7M</p>
-                        <p className='text-center' style={{ marginBottom: "0" }}>Total Followers</p>
+                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>2.9B</p>
+                        <p className='text-center' style={{ marginBottom: "0" }}>Total Views</p>
                     </MDBCol>
                     <MDBCol>
-                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>2.8M</p>
-                        <p className='text-center' style={{ marginBottom: "0" }}>Total Followers</p>
+                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>378M</p>
+                        <p className='text-center' style={{ marginBottom: "0" }}>Total Likes</p>
                     </MDBCol>
                     <MDBCol>
-                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>3.7M</p>
-                        <p className='text-center' style={{ marginBottom: "0" }}>Total Followers</p>
+                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>37M</p>
+                        <p className='text-center' style={{ marginBottom: "0" }}>Total Comments</p>
                     </MDBCol>
                     <MDBCol>
-                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>3.9K</p>
-                        <p className='text-center' style={{ marginBottom: "0" }}>Total Followers</p>
+                        <p className='text-center' style={{ fontSize: "30px", fontWeight: "700", marginBottom: "0" }}>2.5M</p>
+                        <p className='text-center' style={{ marginBottom: "0" }}>Total Saved</p>
                     </MDBCol>
                 </MDBRow>
             </MDBCardBody>

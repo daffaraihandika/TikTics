@@ -68,7 +68,7 @@ function VideoDetail() {
       <MDBContainer>
         <MDBCard style={{ marginTop: "2rem" }}>
             <MDBCardBody>
-            <h3>Detail Video</h3>
+            <h3>Content Details</h3>
             <div dangerouslySetInnerHTML={{ __html: `
                 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mrbeast/video/7116560138814885166" data-video-id="7116560138814885166" style="width: 100%;" > <section> <a target="_blank" title="@mrbeast" href="https://www.tiktok.com/@mrbeast?refer=embed">@mrbeast</a> <p>Minions &gt; Avengers</p> <a target="_blank" title="♬ Rich Minion - Yeat" href="https://www.tiktok.com/music/Rich-Minion-7109284473828591617?refer=embed">♬ Rich Minion - Yeat</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
             ` }}/>
