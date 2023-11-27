@@ -18,6 +18,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../../../components/Navbar';
 import './TopContent.css';
 import SearchBar from '../../../components/SearchBar';
+import Topbar from '../../../components/Topbar';
 
 import Carousel from 'react-bootstrap/Carousel';
 
@@ -61,8 +62,8 @@ function TopContent() {
       <Navbar/>
       <MDBContainer>
         <SearchBar/>
-        {/* <SearchBar/> */}
-        <MDBCard>
+        <Topbar/>
+        <MDBCard style={{ marginTop: '2rem' }}>
             <MDBCardBody>
                 <MDBRow>
                 {dataContent ? (
