@@ -8,14 +8,11 @@ class SearchByKeywordController:
     def __init__(self):
         pass
 
-    def search_influencer(self):
+    def search_influencer(self, keyword):
         mongo_connector = MongoDBConnector()
         mongo_connector.check_connection()
         collection = mongo_connector.get_collection('influencers')
         
-        # Mendapatkan nilai keyword dari parameter query string 'keyword'
-        keyword = request.args.get('keyword', '')
-
         # Membuat filter untuk pencarian berdasarkan keyword
         search_filter = {
             '$or': [

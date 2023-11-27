@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+from flask import request
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 from bson import json_util
@@ -47,7 +48,11 @@ def getDetailsContent(username, content_id):
 
 @app.route('/search-influencer')
 def searchInfluencer():
-    return search.search_influencer()
+    # Retrieve the keyword from the query parameter
+    keyword = request.args.get('keyword', '')
+
+    # Use the keyword in your search
+    return search.search_influencer(keyword)
 
 @app.route('/search-content')
 def searchContent():

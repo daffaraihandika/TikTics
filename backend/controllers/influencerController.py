@@ -35,7 +35,7 @@ class InfluencerController:
             collection = mongo_connector.get_collection('influencers')
 
             # Mendapatkan data influencer berdasarkan username
-            influencer = collection.find_one({'username': username}, {'content': 0})
+            influencer = collection.find_one({'username': username})
 
             if influencer:
                 # Menggunakan json_util untuk mengonversi ObjectId menjadi str

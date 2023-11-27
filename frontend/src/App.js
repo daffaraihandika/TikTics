@@ -17,12 +17,13 @@ function App() {
         <Route path="/" element={<SignIn/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/top-content" element={<TopContent/>}/>
-        <Route path="/top-influencer" element={<TopInfluencer/>}/>
-        <Route path="/influencer-detail" element={<StatistikInfluencer/>}/>
+        <Route path="/influencer-detail/:username" element={<StatistikInfluencer/>}/>
         <Route path="/video-detail" element={<VideoDetail/>}/>
         <Route path="/statistic-prediction" element={<PrediksiStatistik/>}/>
         <Route path="/search-by-keyword" element={<SearchByKeyword/>}/>
+        <Route path="/search-influencer/:keyword" element={<TopInfluencer/>}/>
+        <Route path="/search-content/:keyword" element={<TopContent/>}/>
+        {/* <Route path="/search-influencer" element={<SearchByKeyword/>}/> */}
       </Routes>
     </BrowserRouter>
   );

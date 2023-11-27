@@ -12,18 +12,32 @@ import {
 import Navbar from "../../../components/Navbar";
 import SearchBar from "../../../components/SearchBar";
 import Topbar from "../../../components/Topbar";
+import { useParams } from 'react-router';
+import { useNavigate } from "react-router-dom";
 
 function TopInfluencer() {
     const [dataInfluencer, setDataInfluencer] = useState("");
+    const { keyword } = useParams();
+    const navigate = useNavigate()
 
     useEffect(() => {
-      getTopInfluencer();
-    }, []);
+      console.log("Keyword:", keyword);
+      getTopInfluencer(keyword); // Pass the keyword to the function
+    }, [keyword]);
 
-    const getTopInfluencer = async () => {
+    const handleViewDetails = (username) => {
+      navigate(`/influencer-detail/${username}`);
+    }
+
+    const getTopInfluencer = async (searchTerm) => {
       try {
-        const response = await axios.get("http://localhost:5000/influencers");
-        console.log("Data Top Influencer: ", response.data);
+        if (!searchTerm) {
+          console.log("Keyword is undefined");
+          return;
+        }
+    
+        const response = await axios.get(`http://localhost:5000/search-influencer?keyword=${searchTerm}`);
+        console.log(`Data Top Influencer for keyword ${searchTerm}: `, response.data);
         setDataInfluencer(response.data);
       } catch (error) {
         console.log(error);
@@ -75,18 +89,19 @@ function TopInfluencer() {
                       <td>{influencer.engagement_rate_influencer}%</td>
                       <td>
                         <center>
-                          <MDBBtn
-                            rounded
-                            className="text-light px-3 py-2"
-                            color="light"
-                            size="sm"
-                            style={{
-                              backgroundColor: "#7A7CFF",
-                              textTransform: "none",
-                            }}
-                          >
-                            View Details
-                          </MDBBtn>
+                        <MDBBtn
+                          rounded
+                          className="text-light px-3 py-2"
+                          color="light"
+                          size="sm"
+                          style={{
+                            backgroundColor: "#7A7CFF",
+                            textTransform: "none",
+                          }}
+                          onClick={() => handleViewDetails(influencer.username)}
+                        >
+                          View Details
+                        </MDBBtn>
                         </center>
                       </td>
                     </tr>
