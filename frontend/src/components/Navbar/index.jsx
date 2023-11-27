@@ -20,7 +20,7 @@ export default function Navbar() {
     <>
       <MDBNavbar expand='lg' dark bgColor='primary'>
         <MDBContainer>
-          <MDBNavbarBrand href='#'>TikTics</MDBNavbarBrand>
+          <MDBNavbarBrand href='/dashboard'>TikTics</MDBNavbarBrand>
           <MDBNavbarToggler
             type='button'
             data-target='#navbarColor02'

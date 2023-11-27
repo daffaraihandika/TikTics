@@ -120,6 +120,38 @@ function StatistikInfluencer() {
                 </MDBRow>
             </MDBCardBody>
         </MDBCard>
+
+        <h3 style={{ marginTop: '2rem' }}>Contents</h3>
+        <MDBCard>
+            <MDBCardBody>
+                <MDBRow>
+                    <MDBCol>
+                        <p className='text-center'>Engagement Rate: 40%</p>
+                        <div dangerouslySetInnerHTML={{ __html: `
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mrbeast/video/7229017548413570350" data-video-id="7229017548413570350" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@mrbeast" href="https://www.tiktok.com/@mrbeast?refer=embed">@mrbeast</a> should I sell my new kicks? 🥶💸<a title="12bucklemyshoe" target="_blank" href="https://www.tiktok.com/tag/12bucklemyshoe?refer=embed">#12bucklemyshoe</a> <a title="ice" target="_blank" href="https://www.tiktok.com/tag/ice?refer=embed">#ice</a><a title="newdrip" target="_blank" href="https://www.tiktok.com/tag/newdrip?refer=embed">#newdrip</a> <a title="drippy" target="_blank" href="https://www.tiktok.com/tag/drippy?refer=embed">#drippy</a> <a title="yeat" target="_blank" href="https://www.tiktok.com/tag/yeat?refer=embed">#yeat</a> <a target="_blank" title="♬ original sound - eddy" href="https://www.tiktok.com/music/original-sound-7222028724672432942?refer=embed">♬ original sound - eddy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                            ` }} />
+                    </MDBCol>
+                    <MDBCol>
+                        <p className='text-center'>Engagement Rate: 40%</p>
+                        <div dangerouslySetInnerHTML={{ __html: `
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mrbeast/video/7116560138814885166" data-video-id="7116560138814885166" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@mrbeast" href="https://www.tiktok.com/@mrbeast?refer=embed">@mrbeast</a> <p>Minions &gt; Avengers</p> <a target="_blank" title="♬ Rich Minion - Yeat" href="https://www.tiktok.com/music/Rich-Minion-7109284473828591617?refer=embed">♬ Rich Minion - Yeat</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        ` }} />
+                    </MDBCol>
+                    <MDBCol>
+                        <p className='text-center'>Engagement Rate: 40%</p>
+                        <div dangerouslySetInnerHTML={{ __html: `
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mrbeast/video/7302475940981132590" data-video-id="7302475940981132590" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@mrbeast" href="https://www.tiktok.com/@mrbeast?refer=embed">@mrbeast</a> They really thought it was $1000 instead of $10,000 💀 <a title="samsungpartner" target="_blank" href="https://www.tiktok.com/tag/samsungpartner?refer=embed">#samsungpartner</a> <a target="_blank" title="♬ original sound - MrBeast" href="https://www.tiktok.com/music/original-sound-7302475959553477422?refer=embed">♬ original sound - MrBeast</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        ` }} />
+                    </MDBCol>
+                    <MDBCol>
+                        <p className='text-center'>Engagement Rate: 40%</p>
+                        <div dangerouslySetInnerHTML={{ __html: `
+                            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@mrbeast/video/7298050264441818410" data-video-id="7298050264441818410" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@mrbeast" href="https://www.tiktok.com/@mrbeast?refer=embed">@mrbeast</a> I ran out of candy so I gave away my house instead 😂 <a title="halloween" target="_blank" href="https://www.tiktok.com/tag/halloween?refer=embed">#halloween</a> <a title="trickortreat" target="_blank" href="https://www.tiktok.com/tag/trickortreat?refer=embed">#trickortreat</a> <a title="house" target="_blank" href="https://www.tiktok.com/tag/house?refer=embed">#house</a> <a title="candy" target="_blank" href="https://www.tiktok.com/tag/candy?refer=embed">#candy</a> <a target="_blank" title="♬ original sound - MrBeast" href="https://www.tiktok.com/music/original-sound-7298050299883785002?refer=embed">♬ original sound - MrBeast</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+                        ` }} />
+                    </MDBCol>
+                </MDBRow>
+            </MDBCardBody>
+        </MDBCard>
       </MDBContainer>
     </div>
   )
