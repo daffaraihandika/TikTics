@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   MDBContainer,
   MDBCard,
@@ -14,39 +14,46 @@ import Navbar from "../../../components/Navbar";
 import Chart from "../../../components/Chart"
 
 function PrediksiStatistik() {
-  const [dataContent, setDataContent] = useState("");
+  const [dataInfluencer, setDataInfluencer] = useState("");
+
 
   const navigate = useNavigate();
+  const { username } = useParams();
 
   useEffect(() => {
-    getTopContent();
-    embedTikTokScript();
-  }, []);
+    getInfluencerDetail(username);
+  }, [username]);
 
-  const getTopContent = async () => {
+
+   const getInfluencerDetail = async (username) => {
     try {
-      const response = await axios.get("http://localhost:5000/contents");
-
-      // Menambahkan atribut 'id_content' pada setiap objek
-      const dataWithId = response.data.map((content) => {
-        const linkParts = content.link.split("/");
-        const idContent = linkParts[linkParts.length - 1].split("?")[0];
-        return { ...content, id_content: idContent };
-      });
-
-      console.log("Data Top Content: ", dataWithId);
-      setDataContent(dataWithId);
+      const response = await axios.get(`http://localhost:5000//influencer/${username}`);
+      console.log(`Data Detail Influencer: `, response.data);
+      setDataInfluencer(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const embedTikTokScript = () => {
-    const script = document.createElement("script");
-    script.src = "https://www.tiktok.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-  };
+    const formatNumber = (value) => {
+        if (value === undefined || value === null) {
+            return 'N/A'; // Or any default value you prefer for undefined/null
+        }
+        
+        if (value >= 1e9) {
+            return (value / 1e9).toFixed(1) + 'B';
+        } else if (value >= 1e6) {
+            return (value / 1e6).toFixed(1) + 'M';
+        } else if (value >= 1e3) {
+            return (value / 1e3).toFixed(1) + 'K';
+        } else {
+            return value.toString();
+        }
+    }
+
+    const handleInfluencerDetailClick = () => {
+    navigate(`/influencer-detail/${dataInfluencer.username}`);
+    };
 
   return (
     <div>
@@ -64,9 +71,9 @@ function PrediksiStatistik() {
                 />
               </MDBCol>
               <MDBCol md={8} style={{ paddingLeft: "30px" }}>
-                <p style={{ fontWeight: "bold" }}>Nickname</p>
-                <p>Username</p>
-                <p>Bio</p>
+                <p style={{ fontWeight: "bold" }}>{dataInfluencer.nickname}</p>
+                <p>@{dataInfluencer.username}</p>
+                <p>{dataInfluencer.bio}</p>
                 <MDBBtn
                   rounded
                   className="text-light px-3 py-2"
@@ -77,6 +84,7 @@ function PrediksiStatistik() {
                       "linear-gradient(90deg, #555CF6 0%, #812DE2 91.76%)",
                     textTransform: "none",
                   }}
+                  onClick={handleInfluencerDetailClick}
                 >
                   Influencer Detail
                 </MDBBtn>
@@ -97,7 +105,7 @@ function PrediksiStatistik() {
                           marginBottom: "0",
                         }}
                       >
-                        49%
+                        {dataInfluencer.engagement_rate_influencer}%
                       </p>
                       <p style={{ marginBottom: "0", fontWeight: "bold" }}>
                         Engagement Rate
@@ -117,7 +125,7 @@ function PrediksiStatistik() {
                     marginBottom: "0",
                   }}
                 >
-                  40K
+                  {formatNumber(dataInfluencer.total_followers)}
                 </p>
                 <p className="text-center" style={{ marginBottom: "0" }}>
                   Total Followers
@@ -132,10 +140,10 @@ function PrediksiStatistik() {
                     marginBottom: "0",
                   }}
                 >
-                  3.7M
+                  {formatNumber(dataInfluencer.total_views)}
                 </p>
                 <p className="text-center" style={{ marginBottom: "0" }}>
-                  Total Followers
+                  Total Views
                 </p>
               </MDBCol>
               <MDBCol>
@@ -147,10 +155,10 @@ function PrediksiStatistik() {
                     marginBottom: "0",
                   }}
                 >
-                  2.8M
+                  {formatNumber(dataInfluencer.total_likes)}
                 </p>
                 <p className="text-center" style={{ marginBottom: "0" }}>
-                  Total Followers
+                  Total Likes
                 </p>
               </MDBCol>
               <MDBCol>
@@ -162,10 +170,10 @@ function PrediksiStatistik() {
                     marginBottom: "0",
                   }}
                 >
-                  3.7M
+                  {formatNumber(dataInfluencer.total_comments)}
                 </p>
                 <p className="text-center" style={{ marginBottom: "0" }}>
-                  Total Followers
+                  Total Comments
                 </p>
               </MDBCol>
               <MDBCol>
@@ -177,17 +185,17 @@ function PrediksiStatistik() {
                     marginBottom: "0",
                   }}
                 >
-                  3.9K
+                  {formatNumber(dataInfluencer.total_save)}
                 </p>
                 <p className="text-center" style={{ marginBottom: "0" }}>
-                  Total Followers
+                  Total Saved
                 </p>
               </MDBCol>
             </MDBRow>
           </MDBCardBody>
         </MDBCard>
         <h3 style={{ marginTop: "2rem" }}>Statistics</h3>
-        <Chart/>
+        <Chart />
       </MDBContainer>
     </div>
   );

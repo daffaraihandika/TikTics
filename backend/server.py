@@ -37,6 +37,10 @@ def getAllInfluencer():
 def getDetailsInfluencer(username):
     return influencer.get_details_influencer(username)
 
+@app.route('/statistic-prediction/<username>')
+def getPrediction(username):
+    return influencer.predict_next_content_engagement_rate(username)
+
 @app.route('/contents')
 def getAllContents():
     return content.get_all_content()

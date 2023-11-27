@@ -19,7 +19,7 @@ function App() {
         <Route path="/top-content" element={<TopContent/>}/>
         <Route path="/top-influencer" element={<TopInfluencer/>}/>
         <Route path="/influencer-detail" element={<StatistikInfluencer/>}/>
-        <Route path="/statistic-prediction" element={<PrediksiStatistik/>}/>
+        <Route path="/statistic-prediction/:username" element={<PrediksiStatistik/>}/>
         <Route path="/search-by-keyword" element={<SearchByKeyword/>}/>
       </Routes>
     </BrowserRouter>
