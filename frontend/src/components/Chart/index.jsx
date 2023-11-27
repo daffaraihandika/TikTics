@@ -1,21 +1,45 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { LinePlot } from "@mui/x-charts/LineChart";
 import { ChartContainer } from "@mui/x-charts/ChartContainer";
-
 import { ChartsXAxis } from "@mui/x-charts/ChartsXAxis";
 import { ChartsYAxis } from "@mui/x-charts/ChartsYAxis";
-
-const series = [
-  {
-    type: "line",
-    yAxisKey: "er",
-    color: "red",
-    data: [40, 45, 30, 50, 38],
-  },
-];
+import { useParams } from "react-router-dom";
 
 export default function Combining() {
-  return (
+  const [engagement, setEngagement] = useState([]);
+  const { username } = useParams();
+
+  useEffect(() => {
+    getPrediksiER();
+  }, [username]);
+
+  const getPrediksiER = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/statistic-prediction/${username}`
+      );
+      setEngagement(response.data.engagement_rates);
+      console.log("Engagement Rate : ", response.data.engagement_rates);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const isDataValid = Array.isArray(engagement) && engagement.length > 0;
+
+  const series = isDataValid
+    ? [
+        {
+          type: "line",
+          yAxisKey: "er",
+          color: "red",
+          data: engagement,
+        },
+      ]
+    : [];
+
+  return isDataValid ? (
     <ChartContainer
       series={series}
       width={1300}
@@ -37,7 +61,7 @@ export default function Combining() {
       yAxis={[
         {
           id: "er",
-          scaleType: "log",
+          scaleType: "linear", // Use linear scale for engagement rates
         },
       ]}
     >
@@ -49,5 +73,7 @@ export default function Combining() {
       />
       <ChartsYAxis label="Engagement Rate" position="left" axisId="er" />
     </ChartContainer>
+  ) : (
+    <div>Loading or invalid data...</div>
   );
 }
