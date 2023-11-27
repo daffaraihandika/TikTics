@@ -19,7 +19,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/influencer-detail/:username" element={<StatistikInfluencer/>}/>
         <Route path="/video-detail" element={<VideoDetail/>}/>
-        <Route path="/statistic-prediction" element={<PrediksiStatistik/>}/>
+        <Route path="/statistic-prediction/:username" element={<PrediksiStatistik/>}/>
         <Route path="/search-by-keyword" element={<SearchByKeyword/>}/>
         <Route path="/search-influencer/:keyword" element={<TopInfluencer/>}/>
         <Route path="/search-content/:keyword" element={<TopContent/>}/>
